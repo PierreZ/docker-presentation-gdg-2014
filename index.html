@@ -174,8 +174,7 @@
 				</section>
 
 				<section>
-					<h4>Les défauts de Docker</h4>
-					<h4>La sécurité</h4>
+					<h4>Les défauts de Docker: La sécurité</h4>
 
 					<p>Beaucoup de travail a été fait, il en reste encore...</p>
 					<p>Il existe des failles au niveau:</p>					
@@ -186,8 +185,7 @@
 				</section>
 
 				<section>
-					<h3>Les défauts de Docker</h3>
-					<h4>Le changement de direction</h4>
+					<h3>Les défauts de Docker: le changement de cap</h4>
 					<p>Au départ:</p>
 					<p><a href="https://github.com/docker/docker/commit/0db56e6c519b19ec16c6fbd12e3cee7dfa6018c5">Added 'Standard Container manifesto' to README</a></p>
 					<p>A l'arrivée:</p>
@@ -196,7 +194,7 @@
 				</section>
 
 				<section>
-					<h4>Les défauts de Docker</h4>
+					<h4>Les défauts de Docker: son monolithisme</h4>
 					<p>Un seul binaire client/serveur gère à lui tout seul:</p>
 						<ul>
 							<li>La construction des images</li>
@@ -211,8 +209,7 @@
 				</section>
 
 				<section>
-					<h4>Les défauts de Docker</h4>
-					<p>La gestion du réseau</p>
+					<h4>Les défauts de Docker: le réseau</p>
 					<img src="https://i.imgur.com/I15a34L.gif" style="border: none;-moz-box-shadow:none;-webkit-box-shadow:none;background:none">
 					<p>Doc de Docker: <a href="https://docs.docker.com/articles/networking/">Network Configuration</a></p>
 				</section>
@@ -263,8 +260,7 @@
 				</section>
 
 				<section>
-					<h4>Mon utilisation de Docker</h4>
-					<h4>Sur mon serveur OVH</h4>
+					<h4>Mon utilisation de Docker : serveur OVH</h4>
 					<p>Un conteneur par application</p>
 					<ul>
 						<li>Nginx en frontal de mes conteneurs</li>
@@ -279,8 +275,7 @@
 					</ul>
 				</section>
 				<section>
-					<h4>Mon utilisation de Docker</h4>
-					<h4>Sur mes Raspberry Pi</h4>
+					<h4>Mon utilisation de Docker: Raspberry Pi</h4>
 					<p>Plateforme de test:</p>
 					<ul>
 						<li>Serveur Web</li>
@@ -291,8 +286,7 @@
 				</section>
 
 				<section>
-					<h4>Mon utilisation de Docker</h4>
-					<p>Quelle image choisir ?</p>
+					<h4>Mon utilisation de Docker: Quelle image choisir ?</h4>
 					<p><a href="https://github.com/phusion/baseimage-docker">base-image pour docker</a></p>
 					<p>Avantages:</p>
 					<ul>
@@ -304,8 +298,7 @@
 				</section>
 
 				<section>
-					<h4>Mon utilisation de Docker</h4>
-					<p>Systemd en orchestrateur</p>
+					<h4>Mon utilisation de Docker: Systemd en orchestrateur</h4>
 					<p style="text-align:left">vim /etc/systemd/dockerat.service</p>
 					<pre><code data-trim>
 [Unit]
@@ -328,8 +321,7 @@ systemctl enable docker@nom_de_mon_super_conteneur
 				</section>
 
 				<section>
-					<h4>Mon utilisation de Docker</h4>
-					<p>La gestion des logs</p>
+					<h4>Mon utilisation de Docker: la gestion des logs</h4>
 
 					<pre><code data-trim>
 docker run -v /var/log/nom_de_mon_super_conteneur:/var/log
