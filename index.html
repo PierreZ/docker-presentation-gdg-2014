@@ -328,12 +328,64 @@ docker run -v /var/log/nom_de_mon_super_conteneur:/var/log
 				</section>
 
 				<section>
-					<h2>Projet scolaire: SeaTestBase</h2>
-					<img src="http://img-9gag-ftw.9cache.com/photo/a49d8dm_460sa_v1.gif" style="width:500px; border: none;-moz-box-shadow:none;-webkit-box-shadow:none;background-color:#F0F0F0"/>
+					<h4>Mon utilisation de Docker: un exemple</h4>
+					<img src="img/elementz.png" style="width:500px; border: none;-moz-box-shadow:none;-webkit-box-shadow:none;background-color:#F0F0F0"/>
 				</section>
 
 				<section>
-					<h4>Sea Test Base</h4>
+					<h4>Mon utilisation de Docker: un exemple</h4>
+					<p>Backend REST écrit en Go</p>
+					<ul>
+						<li>GET sur / renvoie le top 5 des scores</li>
+						<li>POST sur / envoie un score</li>
+					</ul>
+					<p><a href="https://github.com/PierreZ/ElementZ-server">Le tout en moins de 79 lignes</a></p>
+				</section>
+
+				<section>
+					<h4>Mon utilisation de Docker: un exemple</h4>
+					<pre><code data-trim>
+FROM golang
+MAINTAINER PierreZ
+
+ADD . /go/src/github.com/pierrez/ElementZ-server
+
+RUN go get github.com/martini-contrib/binding
+RUN go get github.com/go-martini/martini
+RUN go install github.com/github.com/pierrez/ElementZ-server
+
+ENTRYPOINT /go/bin/ElementZ-server
+
+EXPOSE 3000
+					</code></pre>
+				</section>
+
+				<section>
+					<h4>Mon utilisation de Docker: un exemple</h4>
+					<pre><code data-trim>
+#!/bin/bash
+
+set -e;
+
+docker build -t elementz_image .;
+
+docker run -d -p 3000:3000 --name elementz elementz_image;
+					</code></pre>
+				</section>
+
+				<section>
+					<h4>Mon utilisation de Docker: un exemple</h4>
+					<p>Résultat du GET sur /</p>
+					<iframe style="background-color:white" src="http://elementz.pierrezemb.fr"></iframe>
+				</section>
+
+				<section>
+					<h2>Projet scolaire: SeaTestBase</h2>
+					<img src="img/india.gif" style="width:500px; border: none;-moz-box-shadow:none;-webkit-box-shadow:none;background-color:#F0F0F0"/>
+				</section>
+
+				<section>
+					<h4>SeaTestBase</h4>
 					<img src="img/seatestbase.png" style="border: none;-moz-box-shadow:none;-webkit-box-shadow:none;background-color:#F0F0F0"/>
 				</section>
 
@@ -385,6 +437,9 @@ docker run -v /var/log/nom_de_mon_super_conteneur:/var/log
 					<img class="image" src="https://pierrezemb.fr/img/myself.png" style="width: 270px; height: auto; max-height: none; max-width: none; border: none;-moz-box-shadow:none;-webkit-box-shadow:none;background:none">
 					<h2>Merci de votre attention !</h2>
 					<p>Avez-vous des questions ?</p>
+					<p>
+						Slides dispo sur <a href="http://slides.pierrezemb.fr/">http://slides.pierrezemb.fr/</a>
+					</p>
 				</section>
 
 
