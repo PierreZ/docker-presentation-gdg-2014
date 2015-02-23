@@ -286,49 +286,6 @@
 				</section>
 
 				<section>
-					<h4>Mon utilisation de Docker: Quelle image choisir ?</h4>
-					<p><a href="https://github.com/phusion/baseimage-docker">base-image pour docker</a></p>
-					<p>Avantages:</p>
-					<ul>
-						<li>Processus d'initialisation correct</li>
-						<li>Problème avec APT résolu</li>
-						<li>syslog-ng/log rotate</li>
-						<li>Possibilité de SSH</li>
-					</ul>
-				</section>
-
-				<section>
-					<h4>Mon utilisation de Docker: Systemd en orchestrateur</h4>
-					<p style="text-align:left">vim /etc/systemd/dockerat.service</p>
-					<pre><code data-trim>
-[Unit]
-Description=%i service in a docker
-After=docker.service
-Requires=docker.service
-
-[Service]
-Restart=always
-ExecStart=/usr/bin/docker start -a %i
-ExecStop=/usr/bin/docker stop -t 2 %i
-
-[Install]
-WantedBy=local.target
-					</code></pre>
-					<pre><code data-trim>
-systemctl enable docker@nom_de_mon_super_conteneur
-					</code></pre>
-					<p><small>By <a href="http://thibautcharles.net/">Thibaut Charles</a></small></p>
-				</section>
-
-				<section>
-					<h4>Mon utilisation de Docker: la gestion des logs</h4>
-
-					<pre><code data-trim>
-docker run -v /var/log/nom_de_mon_super_conteneur:/var/log
-					</code></pre>
-				</section>
-
-				<section>
 					<h4>Mon utilisation de Docker: un exemple</h4>
 					<img src="img/elementz.png" style="width:500px; border: none;-moz-box-shadow:none;-webkit-box-shadow:none;background-color:#F0F0F0"/>
 				</section>
@@ -423,7 +380,6 @@ docker run -d -p 3000:3000 --name elementz elementz_image;
 						<li>Très peu de configuration réseau à gérer</li>
 						<li>Facilité de déploiement</li>
 					</ul>
-
 				</section>
 
 				<section>
@@ -445,6 +401,49 @@ docker run -d -p 3000:3000 --name elementz elementz_image;
 				</section>
 
 				<section>
+					<h4>SeatestBase: Quelle image choisir ?</h4>
+					<p><a href="https://phusion.github.io/baseimage-docker/">phusion/baseimage-docker</a></p>
+					<p>Avantages:</p>
+					<ul>
+						<li>Processus d'initialisation correct</li>
+						<li>Problème avec APT résolu</li>
+						<li>Possibilité de SSH</li>
+						<li>syslog-ng/log rotate</li>
+					</ul>
+				</section>
+
+				<section>
+					<h4>SeatestBase: la gestion des logs</h4>
+
+					<pre><code data-trim>
+docker run -v /var/log/nom_de_mon_super_conteneur:/var/log
+					</code></pre>
+				</section>
+
+				<section>
+					<h4>SeatestBase: Systemd en orchestrateur</h4>
+					<p style="text-align:left">vim /etc/systemd/dockerat.service</p>
+					<pre><code data-trim>
+[Unit]
+Description=%i service in a docker
+After=docker.service
+Requires=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker start -a %i
+ExecStop=/usr/bin/docker stop -t 2 %i
+
+[Install]
+WantedBy=local.target
+					</code></pre>
+					<pre><code data-trim>
+systemctl enable docker@nom_de_mon_super_conteneur
+					</code></pre>
+					<p><small>By <a href="http://thibautcharles.net/">Thibaut Charles</a></small></p>
+				</section>
+
+				<section>
 					<img class="image" src="https://pierrezemb.fr/img/myself.png" style="width: 270px; height: auto; max-height: none; max-width: none; border: none;-moz-box-shadow:none;-webkit-box-shadow:none;background:none">
 					<h2>Merci de votre attention !</h2>
 					<p>Avez-vous des questions ?</p>
@@ -452,7 +451,6 @@ docker run -d -p 3000:3000 --name elementz elementz_image;
 						Slides dispo sur <a href="http://slides.pierrezemb.fr/">http://slides.pierrezemb.fr/</a>
 					</p>
 				</section>
-
 
 			</div>
 
